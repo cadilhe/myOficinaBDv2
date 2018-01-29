@@ -45,13 +45,11 @@ public class Cliente implements EntidadeBase, Serializable {
     private String nome;
 
     // Ao remover um cliente remove-se todos os equipamentos associados a ele. 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cliente_id")
-    private List<Equipamento> equipamentos;
+    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.EAGER)
+     private List<Equipamento> equipamentos;
 
 // CONSTRUTOR
     public Cliente(){
-        
     }
 
     

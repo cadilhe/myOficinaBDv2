@@ -22,7 +22,7 @@ public class ClienteDAO extends DAO<Cliente>{
         }
 
         if (cliente.getNome() != null && !cliente.getNome().equals("")) {
-            sql.append("and c.nome like :nome");
+            sql.append(" and c.nome like :nome");
         }
         Query query = em.createQuery(sql.toString());
         if (cliente.getId() != null) {
