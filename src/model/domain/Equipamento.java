@@ -1,6 +1,7 @@
 package model.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -84,6 +85,8 @@ public class Equipamento implements EntidadeBase, Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    
+    
 
 // SERVIÇOS
 //    public List<Servico> getServicos() {
@@ -148,5 +151,9 @@ public class Equipamento implements EntidadeBase, Serializable {
         if (this.nome == null || this.nome.equals("")) {
             throw new ValidacaoException("Campo nome deve ser preenchido!");
         }
+    }
+
+    public void removeCliente(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

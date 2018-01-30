@@ -2,6 +2,7 @@ package model.domain;
 
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -11,7 +12,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -81,6 +81,20 @@ public class Cliente implements EntidadeBase, Serializable {
 
     public void setEquipamentos(List<Equipamento> equipamentos) {
         this.equipamentos = equipamentos;
+    }
+    
+    
+    // Métodos convenientes para adicionar e remover equipamentos a clientes
+    public void addEquipamento(Equipamento equipamento) {
+        if (equipamentos == null) {
+            equipamentos = new ArrayList<>();
+        }
+        equipamentos.add(equipamento);
+    }
+
+    public void removeEquipamento(Equipamento equipamento) {
+        equipamentos.remove(equipamento);
+        equipamento.getCliente().removeEquipamento(equipamento);
     }
     
     // Método de validação de campos
