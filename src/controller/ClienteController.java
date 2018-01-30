@@ -79,23 +79,22 @@ public final class ClienteController {
         novo();
         pesquisar();
     }
-    
+
     public void listar() {
         tabelaClientes.clear();
         tabelaClientes.addAll(clienteDAO.findAll());
     }
-    
+
     public void excluir() {
-    clienteDAO.excluir(clienteDigitado);
+        clienteDAO.excluir(clienteDigitado);
         novo();
         pesquisar();
     }
-    
+
     public void pesquisar() {
         tabelaClientes.clear();
         tabelaClientes.addAll(clienteDAO.pesquisar(clienteDigitado));
-    }   
-    
+    }
 
     // Métodos de vinculação de beans
     public void addPropertyChangeListener(PropertyChangeListener propertyChangeListener) {
