@@ -49,7 +49,6 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jLabel5 = new javax.swing.JLabel();
         lblCadastroEquipamentos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEquipamentos = new javax.swing.JTable();
@@ -58,18 +57,16 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
         txtNome = new javax.swing.JTextField();
         lblNomeCliente = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
-        btnPesquisar1 = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
         painelBtnAction = new javax.swing.JPanel();
         btnSalvar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
-        btnListar1 = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
         painelCliente = new javax.swing.JPanel();
         lblCliente = new javax.swing.JLabel();
         cbxClientes = new javax.swing.JComboBox<>();
         btnAddCliente = new javax.swing.JButton();
-
-        jLabel5.setText("jLabel5");
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -113,11 +110,11 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
 
         lblCodigo.setText("Código");
 
-        btnPesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_pesquisar.png"))); // NOI18N
-        btnPesquisar1.setText("Pesquisar");
-        btnPesquisar1.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_pesquisar.png"))); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisar1ActionPerformed(evt);
+                btnPesquisarActionPerformed(evt);
             }
         });
 
@@ -135,7 +132,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPesquisar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(5, 5, 5))
         );
         painelEquipamentoLayout.setVerticalGroup(
@@ -147,7 +144,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomeCliente)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar1))
+                    .addComponent(btnPesquisar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -175,11 +172,11 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnListar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_listar.png"))); // NOI18N
-        btnListar1.setText("Listar");
-        btnListar1.addActionListener(new java.awt.event.ActionListener() {
+        btnListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_listar.png"))); // NOI18N
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListar1ActionPerformed(evt);
+                btnListarActionPerformed(evt);
             }
         });
 
@@ -193,7 +190,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnListar1)
+                .addComponent(btnListar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -206,7 +203,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                     .addComponent(btnNovo)
                     .addComponent(btnSalvar)
                     .addComponent(btnExcluir)
-                    .addComponent(btnListar1))
+                    .addComponent(btnListar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -315,13 +312,13 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                 "Excluir Equipamento", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         equipamentoController.pesquisar();
-    }//GEN-LAST:event_btnPesquisar1ActionPerformed
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void btnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListar1ActionPerformed
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         equipamentoController.listar();
-    }//GEN-LAST:event_btnListar1ActionPerformed
+    }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
         // int linhaEquipamento = tblEquipamentos.getSelectedRow();
@@ -375,12 +372,11 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCliente;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnListar1;
+    private javax.swing.JButton btnListar;
     private javax.swing.JButton btnNovo;
-    private javax.swing.JButton btnPesquisar1;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbxClientes;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCadastroEquipamentos;
     private javax.swing.JLabel lblCliente;
