@@ -40,8 +40,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastroEquipamentoMenu = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        menuSobre = new javax.swing.JMenu();
-        sobreMenuItem = new javax.swing.JMenuItem();
         sairMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,19 +60,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         desktopPane.add(jDesktopPane1);
-        jDesktopPane1.setBounds(0, 0, 600, 450);
+        jDesktopPane1.setBounds(0, 0, 600, 460);
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
-        menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_system-file-manager_118825.png"))); // NOI18N
+        menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_arquivo_16x16.png"))); // NOI18N
         menuCadastro.setMnemonic('f');
         menuCadastro.setText("Arquivo");
 
-        cadastroClienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_client_account_template_64002.png"))); // NOI18N
+        cadastroClienteMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_cliente_16x16.png"))); // NOI18N
         cadastroClienteMenu.setMnemonic('c');
         cadastroClienteMenu.setText("Clientes");
         cadastroClienteMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +82,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(cadastroClienteMenu);
 
-        cadastroEquipamentoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_computer_add_16x16.png"))); // NOI18N
+        cadastroEquipamentoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_equipamento_16x16.png"))); // NOI18N
         cadastroEquipamentoMenu.setMnemonic('e');
         cadastroEquipamentoMenu.setText("Equipamentos");
         cadastroEquipamentoMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -94,38 +92,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(cadastroEquipamentoMenu);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_stock_form-table-control_21421.png"))); // NOI18N
-        jMenuItem2.setText("Relatórios");
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_listar_16x16.png"))); // NOI18N
+        jMenuItem2.setText("Listagens");
         menuCadastro.add(jMenuItem2);
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_application_form_magnify_35651.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_pesquisar.png"))); // NOI18N
         jMenuItem1.setText("Consultas");
         menuCadastro.add(jMenuItem1);
 
-        menuBar.add(menuCadastro);
-
-        menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_gtk-about_29340.png"))); // NOI18N
-        menuSobre.setText("Sobre");
-
-        sobreMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_client_account_template_64002.png"))); // NOI18N
-        sobreMenuItem.setText("Sobre");
-        sobreMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sobreMenuItemActionPerformed(evt);
-            }
-        });
-        menuSobre.add(sobreMenuItem);
-
-        sairMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_delete.png"))); // NOI18N
+        sairMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_sair_16x16.png"))); // NOI18N
         sairMenu.setText("Sair");
         sairMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairMenuActionPerformed(evt);
             }
         });
-        menuSobre.add(sairMenu);
+        menuCadastro.add(sairMenu);
 
-        menuBar.add(menuSobre);
+        menuBar.add(menuCadastro);
 
         setJMenuBar(menuBar);
 
@@ -147,14 +131,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadEquipamento.setVisible(true);
     }//GEN-LAST:event_cadastroEquipamentoMenuActionPerformed
 
-    private void sobreMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreMenuItemActionPerformed
-//        TelaSobre telaSobre = new TelaSobre();
-//        this.desktopPane.add(telaSobre);
-//        telaSobre.setVisible(true);
-    }//GEN-LAST:event_sobreMenuItemActionPerformed
-
     private void sairMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairMenuActionPerformed
-        // Exibe uma caixa de diálogo de alerta
+         // Exibe uma caixa de diálogo de alerta
         int sair = JOptionPane.showConfirmDialog(null,"Tem certeza que deseja sair?","Atenção",JOptionPane.YES_OPTION);
         if(sair == JOptionPane.YES_OPTION){
             System.exit(0);
@@ -204,9 +182,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
-    private javax.swing.JMenu menuSobre;
     private javax.swing.JMenuItem sairMenu;
-    private javax.swing.JMenuItem sobreMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

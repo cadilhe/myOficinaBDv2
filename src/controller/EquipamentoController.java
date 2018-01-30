@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
+import model.dao.ClienteDAO;
 import model.dao.EquipamentoDAO;
 import model.domain.Cliente;
 import model.domain.Equipamento;
@@ -21,7 +22,7 @@ public final class EquipamentoController {
     private Equipamento equipamentoSelecionado;
     private List<Equipamento> tabelaEquipamentos;
     private EquipamentoDAO equipamentoDAO;
-
+    private ClienteDAO clienteDAO;
     private List<Cliente> tabelaClientes;
     private Cliente clienteSelecionado;
 
@@ -110,20 +111,6 @@ public final class EquipamentoController {
         setEquipamentoDigitado(new Equipamento());
     }
 
-    // Salva junto com o cliente selecionado do ComboBox
-    public void cadastrarEquipamento(String nome, Cliente cliente) {
-        
-        setEquipamentoDigitado(new Equipamento());
-        equipamentoDigitado.setNome(nome);
-        equipamentoDigitado.setCliente(clienteSelecionado);
-        equipamentoDAO.salvarAtualizar(equipamentoDigitado);
-        novo();
-        pesquisar();
-
-    }
-    
-    
-
     public void salvar() throws ValidacaoException {
         equipamentoDigitado.validar();
         equipamentoDAO.salvarAtualizar(equipamentoDigitado);
@@ -147,20 +134,13 @@ public final class EquipamentoController {
         tabelaEquipamentos.addAll(equipamentoDAO.pesquisar(equipamentoDigitado));
     }
 
-    // Tratamento da persistencia do Equipamento e suas associaçoes;
-    public void cadastrarEquipamento(Equipamento equipamento) {
-
-        Cliente cliente = tabelaClientes.set(0, clienteSelecionado);
-        setEquipamentoDigitado(new Equipamento());
-        equipamento.setCliente(cliente);
-        equipamentoDAO.salvarAtualizar(equipamentoDigitado);
+    /* Tratamento do botão adicionar proprietario. Como tirar a programação da classe view para aqui?    
+    public void cadastrarProprietario() {
+                
+        int linhaEquipamento = EquipamentoView.tblEquipamentos.getSelectedRow();
+        Equipamento equipamento = getEquipamentoSelecionado();
+        Cliente cliente = (Cliente) EquipamentoView.cbxClientes.getSelectedItem();
+        equipamento.setCliente(cliente);        
     }
-
-   
-    public void adicionarProprietário() {
-       
-       
-    }
-
-    
+     */
 }
