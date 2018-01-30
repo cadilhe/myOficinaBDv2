@@ -110,6 +110,20 @@ public final class EquipamentoController {
         setEquipamentoDigitado(new Equipamento());
     }
 
+    // Salva junto com o cliente selecionado do ComboBox
+    public void cadastrarEquipamento(String nome, Cliente cliente) {
+        
+        setEquipamentoDigitado(new Equipamento());
+        equipamentoDigitado.setNome(nome);
+        equipamentoDigitado.setCliente(clienteSelecionado);
+        equipamentoDAO.salvarAtualizar(equipamentoDigitado);
+        novo();
+        pesquisar();
+
+    }
+    
+    
+
     public void salvar() throws ValidacaoException {
         equipamentoDigitado.validar();
         equipamentoDAO.salvarAtualizar(equipamentoDigitado);
@@ -133,7 +147,7 @@ public final class EquipamentoController {
         tabelaEquipamentos.addAll(equipamentoDAO.pesquisar(equipamentoDigitado));
     }
 
-    // Tratamento da perisitencia do Equipamento e suas associaçoes;
+    // Tratamento da persistencia do Equipamento e suas associaçoes;
     public void cadastrarEquipamento(Equipamento equipamento) {
 
         Cliente cliente = tabelaClientes.set(0, clienteSelecionado);
@@ -141,21 +155,12 @@ public final class EquipamentoController {
         equipamento.setCliente(cliente);
         equipamentoDAO.salvarAtualizar(equipamentoDigitado);
     }
-    
-    /*
-    
-    private void atualizarTabela(int rowChurrasco) {
-        masterTableChurrasco.clearSelection(); // limpa a tabela de churrascos
-        if (masterTableChurrasco.getRowCount() > 0) {
-            int ultima = masterTableChurrasco.getRowCount() - 1;
-            masterTableChurrasco.setRowSelectionInterval(0, 0);
-            masterTableChurrasco.setRowSelectionInterval(ultima, ultima);
-        }
-        // Manter a última linha da tabela selecioanada
-        masterTableChurrasco.setRowSelectionInterval(rowChurrasco, rowChurrasco);
-    }
-    
-    */
 
    
+    public void adicionarProprietário() {
+       
+       
+    }
+
+    
 }

@@ -12,22 +12,22 @@ public class DAO<T extends EntidadeBase> {
     
     // Fábrica de conexão
     public EntityManager getEM(){
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory("myOficinaBDv2PU");
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory("myOficinav2PU");
         return factory.createEntityManager();
     }
 
 // MÉTODOS DE PERSISTÊNCIA
     
-    public boolean salvarAtualizar(T t) {
+    public boolean salvarAtualizar(T tipo) {
         EntityManager em = getEM();
         boolean result = true;
 
         try {
             em.getTransaction().begin();
-            if (t.getId() != null) {
-                t = em.merge(t);
+            if (tipo.getId() != null) {
+                tipo = em.merge(tipo);
             }
-            em.persist(t);
+            em.persist(tipo);
             em.getTransaction().commit();
         } catch (Exception ex) {
             ex.getMessage();
@@ -39,14 +39,14 @@ public class DAO<T extends EntidadeBase> {
     }
     
     // Excluir objeto
-    public boolean excluir(T t) {
+    public boolean excluir(T tipo) {
         EntityManager em = getEM();
         boolean result = true;
 
         try {
             em.getTransaction().begin();
-            t = em.merge(t); // Atualizar o estado do objeto
-            em.remove(t);
+            tipo = em.merge(tipo); // Atualizar o estado do objeto
+            em.remove(tipo);
             em.getTransaction().commit();
         } catch (Exception ex) {
             ex.getMessage();

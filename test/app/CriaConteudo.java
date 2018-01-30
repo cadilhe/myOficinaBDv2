@@ -6,7 +6,6 @@
 package app;
 
 import model.dao.EquipamentoDAO;
-import java.util.ArrayList;
 import java.util.List;
 import model.dao.ClienteDAO;
 import model.domain.Cliente;
