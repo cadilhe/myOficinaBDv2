@@ -136,8 +136,7 @@ public final class EquipamentoController {
 
     /* Tratamento do botão adicionar proprietario. Como tirar a programação da classe view para aqui?    
     public void cadastrarProprietario() {
-                
-        int linhaEquipamento = EquipamentoView.tblEquipamentos.getSelectedRow();
+              
         Equipamento equipamento = getEquipamentoSelecionado();
         Cliente cliente = (Cliente) EquipamentoView.cbxClientes.getSelectedItem();
         equipamento.setCliente(cliente);        
