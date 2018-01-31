@@ -2,13 +2,8 @@
 Implementação de relacionamento @OneToMany antre as entidades Cliente e Equipamento usando o padrão de projeto MVC com Swing e JPA com Hibernate. 
 
 ** Ferramentas: **
-JDK 1.8
 
-MySQL
-
-Hibernate 4.3
-
-NetBeans IDE
+JDK 1.8, MySQL, Hibernate 4.3, NetBeans IDE
 
 ** Como executar o projeto **
 
