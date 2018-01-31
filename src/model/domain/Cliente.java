@@ -92,10 +92,10 @@ public class Cliente implements EntidadeBase, Serializable {
         equipamentos.add(equipamento);
     }
 
-    public void removeEquipamento(Equipamento equipamento) {
-        equipamentos.remove(equipamento);
-        equipamento.getCliente().removeEquipamento(equipamento);
-    }
+//    public void removeEquipamento(Equipamento equipamento) {
+//        equipamentos.remove(equipamento);
+//        equipamento.getCliente().removeEquipamento(equipamento);
+//    }
     
     // Método de validação de campos
     public void validar() throws ValidacaoException {

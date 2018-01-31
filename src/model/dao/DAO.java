@@ -56,18 +56,5 @@ public class DAO<T extends EntidadeBase> {
         }
         return result;
     }
-    
-    // Listar todos objetos
-    // public abstract List<E> findAll();
-    
-    /* Os métodos abaixo só foram implementados em ServicoDAO, entao ficam só por lá...
-    
-    // Obter pelo ID
-    public abstract E getById(final Long id);
-    
-    // Remover por ID
-    public abstract boolean removeById(final Long id);
-    
-    */
 
 }

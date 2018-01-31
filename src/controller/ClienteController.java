@@ -49,7 +49,6 @@ public final class ClienteController {
         if (this.clienteSelecionado != null) {
             setClienteDigitado(clienteSelecionado);
         }
-
     }
 
     public List<Cliente> getTabelaClientes() {

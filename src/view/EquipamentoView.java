@@ -80,17 +80,24 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
         columnBinding.setColumnName("Código");
         columnBinding.setColumnClass(Long.class);
+        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
         columnBinding.setColumnName("Nome");
         columnBinding.setColumnClass(String.class);
+        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cliente}"));
         columnBinding.setColumnName("Cliente");
         columnBinding.setColumnClass(model.domain.Cliente.class);
+        columnBinding.setEditable(false);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${equipamentoController.equipamentoSelecionado}"), tblEquipamentos, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
         bindingGroup.addBinding(binding);
 
         jScrollPane1.setViewportView(tblEquipamentos);
+        if (tblEquipamentos.getColumnModel().getColumnCount() > 0) {
+            tblEquipamentos.getColumnModel().getColumn(0).setResizable(false);
+            tblEquipamentos.getColumnModel().getColumn(0).setPreferredWidth(10);
+        }
 
         painelEquipamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -290,6 +297,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        
         try {            
             equipamentoController.salvar();
             JOptionPane.showMessageDialog(this, "Equipamento salvo com sucesso",
@@ -308,7 +316,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
         if (JOptionPane.showConfirmDialog(this, "Deseja excluir o equipamento?",
                 "Excluir Equipamento", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
         equipamentoController.excluir();
-        JOptionPane.showMessageDialog(this, "Equipamento excluído com sucesso",
+        JOptionPane.showMessageDialog(this, "Equipamento excluído",
                 "Excluir Equipamento", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -321,12 +329,19 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
-        // int linhaEquipamento = tblEquipamentos.getSelectedRow();
+                
         Equipamento equipamento = equipamentoController.getEquipamentoSelecionado();
         Cliente cliente = (Cliente) cbxClientes.getSelectedItem();
+        
         equipamento.setCliente(cliente);
+        
+        cliente.addEquipamento(equipamento);
+        
+        JOptionPane.showMessageDialog(this, "Cliente adicionado",
+                    "Adicionar cliente", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnAddClienteActionPerformed
 
+      
     /**
      * @param args the command line arguments
      */
@@ -391,7 +406,5 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    private void limparCampos() {
-
-    }
+    
 }

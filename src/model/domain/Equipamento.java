@@ -36,24 +36,11 @@ public class Equipamento implements EntidadeBase, Serializable {
 
     @Column
     private String nome;
-
-    /* Relacionamento equipamento-cliente: N:1. 
-     * A cascata é seletiva porque a remoçao do equipamento nao implica na exclusao do cliente. 
-     * Remove apenas a associaçao entre equipamento e cliente - CascadeType.DETACH
-     */ 
+    
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente")    
     private Cliente cliente;
 
-// Relacionamento equipamento-serviço: N:M
-//    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    @JoinTable(name = "equipamento_servico",
-//            joinColumns = {
-//                @JoinColumn(name = "equipamento_id", referencedColumnName = "id_equipamento")},
-//            inverseJoinColumns = {
-//                @JoinColumn(name = "servico_id", referencedColumnName = "id_servico")}
-//    )
-//    private List<Servico> servicos;
 
 // CONSTRUTOR    
     public Equipamento() {
@@ -87,35 +74,16 @@ public class Equipamento implements EntidadeBase, Serializable {
     }
     
     
-
-// SERVIÇOS
-//    public List<Servico> getServicos() {
-//        return servicos;
-//    }
-//
-//    public void setServicos(List<Servico> servicos) {
-//        this.servicos = servicos;
-//    }
-//
-//    // Métodos convenientes para adicionar e remover serviços em equipamentos   
-//    public void addServico(Servico itemServico) {
-//        if (servicos == null) {
-//            servicos = new ArrayList<>();
-//        }
-//        servicos.add(itemServico);
-//    }
-//
-//    public void removeServico(Servico servico) {
-//        servicos.remove(servico);
-//        servico.getEquipamentos().remove(this);
-//    }
-//
-//    public void remove() {
-//        for (Servico servico : new ArrayList<>(servicos)) {
-//            removeServico(servico);
-//        }
-//    }
+    // Método de validação de campos
+    public void validarCliente() throws ValidacaoException {
+        if (this.getCliente() == null || this.getCliente().equals("")) {
+            throw new ValidacaoException("O Cliente deve ser preenchido!");
+        }
+    }
     
+    
+
+ 
     
 // HASHCODE, EQUALS
     @Override
@@ -153,7 +121,5 @@ public class Equipamento implements EntidadeBase, Serializable {
         }
     }
 
-    public void removeCliente(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

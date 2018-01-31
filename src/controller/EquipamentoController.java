@@ -112,8 +112,8 @@ public final class EquipamentoController {
     }
 
     public void salvar() throws ValidacaoException {
-        equipamentoDigitado.validar();
         equipamentoDAO.salvarAtualizar(equipamentoDigitado);
+        
         novo();
         pesquisar();
     }
@@ -124,6 +124,7 @@ public final class EquipamentoController {
     }
 
     public void excluir() {
+        equipamentoDigitado.getCliente().setEquipamentos(null);
         equipamentoDAO.excluir(equipamentoDigitado);
         novo();
         pesquisar();
@@ -142,4 +143,7 @@ public final class EquipamentoController {
         equipamento.setCliente(cliente);        
     }
      */
+    
+    
+    
 }
