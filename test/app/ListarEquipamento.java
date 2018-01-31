@@ -21,9 +21,9 @@ public class ListarEquipamento {
         
         List<Equipamento> equipamentos = sdao.findAll();
         
-        System.out.println("Lista de todos os serviços disponíveis\n"
+        System.out.println("Lista de equipamentos\n"
                 + "--------------------------------------");
-        System.out.println("Código - Nome do serviço");
+        System.out.println("Código - Nome do equipamento");
         for(Equipamento equipamento : equipamentos) {
             System.out.println(equipamento.getId() + " - " + equipamento.getNome());
         }

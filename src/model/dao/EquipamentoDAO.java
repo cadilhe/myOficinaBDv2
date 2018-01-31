@@ -36,8 +36,6 @@ public class EquipamentoDAO extends DAO {
         return result;
     }
 
-   
-
     // Pesquisar equipamento por Id e por Nome        
     public List<Equipamento> pesquisar(Equipamento equipamento) {
         StringBuilder sql = new StringBuilder("from Equipamento e " + "where 1 = 1"); // para não ficar verificando se o where foi declarado
@@ -54,26 +52,6 @@ public class EquipamentoDAO extends DAO {
         }
         if (equipamento.getNome() != null && !equipamento.getNome().equals("")) {
             query.setParameter("nome", "%" + equipamento.getNome() + "%");
-        }
-        return query.getResultList();
-    }
-
-    // Pesquisar equipamento por Cliente     
-    public List<Equipamento> pesquisarPorCliente(Equipamento equipamento) {
-        StringBuilder sql = new StringBuilder("from Equipamento e " + "where 1 = 1");
-        if (equipamento.getId() != null) {
-            sql.append("and e.id = :id");
-        }
-        if (equipamento.getCliente() != null) {
-            sql.append("and e.cliente.id = :id");
-        }
-
-        Query query = em.createQuery(sql.toString());
-        if (equipamento.getId() != null) {
-            query.setParameter("id", equipamento.getId());
-        }
-        if (equipamento.getCliente() != null) {
-            query.setParameter("id", equipamento.getCliente());
         }
         return query.getResultList();
     }

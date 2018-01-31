@@ -112,6 +112,7 @@ public final class EquipamentoController {
     }
 
     public void salvar() throws ValidacaoException {
+        equipamentoDigitado.validar();
         equipamentoDAO.salvarAtualizar(equipamentoDigitado);
 
         novo();
@@ -137,12 +138,10 @@ public final class EquipamentoController {
         tabelaEquipamentos.addAll(equipamentoDAO.pesquisar(equipamentoDigitado));
     }
 
-    /* Tratamento do botão adicionar proprietario. Como tirar a programação da classe view para aqui?    
-    public void cadastrarProprietario() {
-              
-        Equipamento equipamento = getEquipamentoSelecionado();
-        Cliente cliente = (Cliente) EquipamentoView.cbxClientes.getSelectedItem();
-        equipamento.setCliente(cliente);        
+    public void adicionarEquipamento() {
+       tabelaEquipamentos.add(equipamentoDigitado);        
     }
-     */
+
+
+    
 }

@@ -65,9 +65,11 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
         btnNovo = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
-        painelCliente = new javax.swing.JPanel();
-        lblCliente = new javax.swing.JLabel();
+        painelAddCliente = new javax.swing.JPanel();
         cbxClientes = new javax.swing.JComboBox<>();
+        btnRemoveCliente = new javax.swing.JButton();
+        btnAddEquipamento = new javax.swing.JButton();
+        lblCliente = new javax.swing.JLabel();
         btnAddCliente = new javax.swing.JButton();
 
         setClosable(true);
@@ -216,44 +218,66 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lblCliente.setText("Cliente");
-
         eLProperty = org.jdesktop.beansbinding.ELProperty.create("${equipamentoController.tabelaClientes}");
         org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, cbxClientes);
         bindingGroup.addBinding(jComboBoxBinding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${equipamentoController.clienteSelecionado}"), cbxClientes, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
+        btnRemoveCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cliente_remover_16x16.png"))); // NOI18N
+        btnRemoveCliente.setText("Remover");
+        btnRemoveCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveClienteActionPerformed(evt);
+            }
+        });
+
+        btnAddEquipamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equipamento_add_16x16.png"))); // NOI18N
+        btnAddEquipamento.setText("Adicionar");
+        btnAddEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEquipamentoActionPerformed(evt);
+            }
+        });
+
+        lblCliente.setText("Cliente");
+
         btnAddCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cliente_adicionar_16x16.png"))); // NOI18N
-        btnAddCliente.setText("Adicionar Cliente");
+        btnAddCliente.setText("Adicionar");
         btnAddCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddClienteActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout painelClienteLayout = new javax.swing.GroupLayout(painelCliente);
-        painelCliente.setLayout(painelClienteLayout);
-        painelClienteLayout.setHorizontalGroup(
-            painelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout painelAddClienteLayout = new javax.swing.GroupLayout(painelAddCliente);
+        painelAddCliente.setLayout(painelAddClienteLayout);
+        painelAddClienteLayout.setHorizontalGroup(
+            painelAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelAddClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAddEquipamento)
+                .addGap(19, 19, 19)
                 .addComponent(lblCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxClientes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRemoveCliente)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        painelClienteLayout.setVerticalGroup(
-            painelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(painelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+        painelAddClienteLayout.setVerticalGroup(
+            painelAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelAddClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelAddClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblCliente)
                     .addComponent(cbxClientes)
-                    .addComponent(btnAddCliente))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAddCliente)
+                    .addComponent(btnAddEquipamento)
+                    .addComponent(btnRemoveCliente))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -265,13 +289,16 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                 .addComponent(lblCadastroEquipamentos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painelBtnAction, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(painelEquipamento, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(painelCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                            .addComponent(painelEquipamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(painelAddCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelBtnAction, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,11 +307,11 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
                 .addComponent(lblCadastroEquipamentos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(painelEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(painelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(painelAddCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(painelBtnAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -299,8 +326,8 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        
-        try {            
+
+        try {
             equipamentoController.salvar();
             JOptionPane.showMessageDialog(this, "Equipamento salvo com sucesso",
                     "Salvar Equipamento", JOptionPane.INFORMATION_MESSAGE);
@@ -331,27 +358,51 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddClienteActionPerformed
-                
+
         Equipamento equipamento = equipamentoController.getEquipamentoSelecionado();
         Cliente cliente = (Cliente) cbxClientes.getSelectedItem();
-        
+
         equipamento.setCliente(cliente);
-        
+
         cliente.addEquipamento(equipamento);
-        
+
         try {
             equipamentoController.salvar();
         } catch (ValidacaoException ex) {
             Logger.getLogger(EquipamentoView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         JOptionPane.showMessageDialog(this, "Cliente adicionado",
-                    "Adicionar cliente", JOptionPane.INFORMATION_MESSAGE);
-        
-        
+                "Adicionar cliente", JOptionPane.INFORMATION_MESSAGE);
+
+
     }//GEN-LAST:event_btnAddClienteActionPerformed
 
-      
+    private void btnRemoveClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveClienteActionPerformed
+        // TODO add your handling code here:
+        Equipamento equipamento = equipamentoController.getEquipamentoSelecionado();
+        // Cliente cliente = (Cliente) cbxClientes.getSelectedItem();
+        if (equipamento.getCliente() != null) {
+            equipamento.setCliente(null);
+        }
+        try {
+            equipamentoController.salvar();
+        } catch (ValidacaoException ex) {
+            Logger.getLogger(EquipamentoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnRemoveClienteActionPerformed
+
+    private void btnAddEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEquipamentoActionPerformed
+        // TODO add your handling code here:
+        // equipamentoController.adicionarEquipamento();
+        try {
+            equipamentoController.salvar();
+        } catch (ValidacaoException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                    "Falha de Validação", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAddEquipamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -396,10 +447,12 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCliente;
+    private javax.swing.JButton btnAddEquipamento;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnRemoveCliente;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbxClientes;
     private javax.swing.JScrollPane jScrollPane1;
@@ -407,8 +460,8 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblNomeCliente;
+    private javax.swing.JPanel painelAddCliente;
     private javax.swing.JPanel painelBtnAction;
-    private javax.swing.JPanel painelCliente;
     private javax.swing.JPanel painelEquipamento;
     private javax.swing.JTable tblEquipamentos;
     private javax.swing.JTextField txtCodigo;
@@ -416,5 +469,4 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    
 }

@@ -9,9 +9,14 @@ public class ClienteDAO extends DAO<Cliente>{
     
     EntityManager em = getEM();
 
-    // Listar todos objetos    
+    // Listar todos clientes    
     public List<Cliente> findAll() {
         return em.createQuery("FROM Cliente").getResultList();
+    }
+    
+    // Encontrar o cliente por ID
+    public Cliente getById(final Long id) {
+        return em.find(Cliente.class, id);
     }
 
     // Pesquisar Cliente por ID e por Nome    
