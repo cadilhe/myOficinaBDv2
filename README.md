@@ -3,8 +3,11 @@ Implementação de relacionamento @OneToMany antre as entidades Cliente e Equipa
 
 ** Ferramentas: **
 JDK 1.8
+
 MySQL
+
 Hibernate 4.3
+
 NetBeans IDE
 
 ** Como executar o projeto **
