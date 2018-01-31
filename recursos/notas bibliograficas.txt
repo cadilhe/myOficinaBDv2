@@ -64,6 +64,19 @@ https://stackoverflow.com/questions/44437776/how-to-separate-code-into-classes-f
 action listener in another class - java
 https://stackoverflow.com/questions/4985507/action-listener-in-another-class-java/4985539#4985539
 
+FÓRUNS
+Erros: 
+Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead
+Exception in thread "AWT-EventQueue-0" java.lang.NoClassDefFoundError: org/jboss/jandex/IndexView
+
+http://lasolucionjava.blogspot.com.br/2014/11/para-los-que-trabajan-con-jpa-y.html
+
+Fix for log4j WARN No appenders could be found for logger, Please initialize the log4j system properly
+https://www.journaldev.com/10721/log4j-warn-no-appenders-could-be-found-for-logger-please-initialize-the-log4j-system-properly
+
+
+NOTAS DIVERSAS
+
 SQL
 -----------------------
 Comando Resetar AUTO_INCREMENT
@@ -74,17 +87,6 @@ ALTER TABLE users
 ADD COLUMN `count` SMALLINT(6) NOT NULL AFTER `lastname`,
 ADD COLUMN `log` VARCHAR(12) NOT NULL AFTER `count`,
 ADD COLUMN `status` INT(10) UNSIGNED NOT NULL AFTER `log`;
-
-
-FÓRUNS
-Erros: 
-Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; use [org.hibernate.jpa.HibernatePersistenceProvider] instead
-Exception in thread "AWT-EventQueue-0" java.lang.NoClassDefFoundError: org/jboss/jandex/IndexView
-
-http://lasolucionjava.blogspot.com.br/2014/11/para-los-que-trabajan-con-jpa-y.html
-
-Fix for log4j WARN No appenders could be found for logger, Please initialize the log4j system properly
-https://www.journaldev.com/10721/log4j-warn-no-appenders-could-be-found-for-logger-please-initialize-the-log4j-system-properly
 
 
 WINDOWS
