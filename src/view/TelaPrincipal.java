@@ -12,13 +12,10 @@ import javax.swing.JOptionPane;
  * @author carlosafc
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    
 
     /**
      * Creates new form TelaPrincipal
      */
-    
-    
     public TelaPrincipal() {
         initComponents();
     }
@@ -36,10 +33,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
-        menuClientes = new javax.swing.JMenuItem();
-        menuEquipamentos = new javax.swing.JMenuItem();
-        menuConsultas = new javax.swing.JMenuItem();
-        menuSair = new javax.swing.JMenuItem();
+        menuCadastroClientes = new javax.swing.JMenuItem();
+        menuCadastroEquipamentos = new javax.swing.JMenuItem();
+        menuSair1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Oficina Ilhatec");
@@ -69,45 +65,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_arquivo_16x16.png"))); // NOI18N
         menuCadastro.setMnemonic('f');
-        menuCadastro.setText("Painel de Controle");
+        menuCadastro.setText("Cadastros e Consultas");
 
-        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_cliente_16x16.png"))); // NOI18N
-        menuClientes.setMnemonic('c');
-        menuClientes.setText("Clientes");
-        menuClientes.addActionListener(new java.awt.event.ActionListener() {
+        menuCadastroClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_cliente_16x16.png"))); // NOI18N
+        menuCadastroClientes.setMnemonic('c');
+        menuCadastroClientes.setText("Clientes");
+        menuCadastroClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuClientesActionPerformed(evt);
+                menuCadastroClientesActionPerformed(evt);
             }
         });
-        menuCadastro.add(menuClientes);
+        menuCadastro.add(menuCadastroClientes);
 
-        menuEquipamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_equipamento_16x16.png"))); // NOI18N
-        menuEquipamentos.setMnemonic('e');
-        menuEquipamentos.setText("Equipamentos");
-        menuEquipamentos.addActionListener(new java.awt.event.ActionListener() {
+        menuCadastroEquipamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_equipamento_16x16.png"))); // NOI18N
+        menuCadastroEquipamentos.setMnemonic('e');
+        menuCadastroEquipamentos.setText("Equipamentos");
+        menuCadastroEquipamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuEquipamentosActionPerformed(evt);
+                menuCadastroEquipamentosActionPerformed(evt);
             }
         });
-        menuCadastro.add(menuEquipamentos);
+        menuCadastro.add(menuCadastroEquipamentos);
 
-        menuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/op_pesquisar.png"))); // NOI18N
-        menuConsultas.setText("Consultas");
-        menuConsultas.addActionListener(new java.awt.event.ActionListener() {
+        menuSair1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_sair_16x16.png"))); // NOI18N
+        menuSair1.setText("Sair");
+        menuSair1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuConsultasActionPerformed(evt);
+                menuSair1ActionPerformed(evt);
             }
         });
-        menuCadastro.add(menuConsultas);
-
-        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu_sair_16x16.png"))); // NOI18N
-        menuSair.setText("Sair");
-        menuSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuSairActionPerformed(evt);
-            }
-        });
-        menuCadastro.add(menuSair);
+        menuCadastro.add(menuSair1);
 
         menuBar.add(menuCadastro);
 
@@ -119,36 +106,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClientesActionPerformed
+    private void menuCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroClientesActionPerformed
         // TODO add your handling code here:
         ClienteView cadCliente = new ClienteView();
         jDesktopPane1.add(cadCliente);
         cadCliente.setVisible(true);
-    }//GEN-LAST:event_menuClientesActionPerformed
+    }//GEN-LAST:event_menuCadastroClientesActionPerformed
 
-    private void menuEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEquipamentosActionPerformed
+    private void menuCadastroEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroEquipamentosActionPerformed
         // TODO add your handling code here:
         EquipamentoView cadEquipamento = new EquipamentoView();
         this.desktopPane.add(cadEquipamento);
         cadEquipamento.setVisible(true);
-    }//GEN-LAST:event_menuEquipamentosActionPerformed
+    }//GEN-LAST:event_menuCadastroEquipamentosActionPerformed
 
-    
-    
-    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
-         // Exibe uma caixa de diálogo de alerta
-        int sair = JOptionPane.showConfirmDialog(null,"Tem certeza que deseja sair?","Atenção",JOptionPane.YES_OPTION);
-        if(sair == JOptionPane.YES_OPTION){
+
+    private void menuSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSair1ActionPerformed
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza?", "Atenção", JOptionPane.YES_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
-    }//GEN-LAST:event_menuSairActionPerformed
-
-    private void menuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultasActionPerformed
-        // TODO add your handling code here:
-        ConsultasView consultasView = new ConsultasView();
-        this.desktopPane.add(consultasView);
-        consultasView.setVisible(true);
-    }//GEN-LAST:event_menuConsultasActionPerformed
+    }//GEN-LAST:event_menuSair1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,10 +167,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
-    private javax.swing.JMenuItem menuClientes;
-    private javax.swing.JMenuItem menuConsultas;
-    private javax.swing.JMenuItem menuEquipamentos;
-    private javax.swing.JMenuItem menuSair;
+    private javax.swing.JMenuItem menuCadastroClientes;
+    private javax.swing.JMenuItem menuCadastroEquipamentos;
+    private javax.swing.JMenuItem menuSair1;
     // End of variables declaration//GEN-END:variables
 
 }

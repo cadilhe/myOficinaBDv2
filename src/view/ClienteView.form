@@ -285,12 +285,9 @@
           <BindingProperties>
             <BindingProperty name="elements" source="Form" sourcePath="${clienteController.tabelaClientes}" target="tblClientes" targetPath="elements" updateStrategy="0" immediately="true">
               <Subbinding sourcePath="${id}">
-                <BindingParameter name="NAME" value="C&#xf3;digo"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Long.class"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
               </Subbinding>
               <Subbinding sourcePath="${nome}">
-                <BindingParameter name="NAME" value="Nome"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
             </BindingProperty>

@@ -7,6 +7,8 @@ package view;
 
 import controller.ClienteController;
 import controller.EquipamentoController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.domain.Cliente;
 import model.domain.Equipamento;
@@ -337,8 +339,16 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
         
         cliente.addEquipamento(equipamento);
         
+        try {
+            equipamentoController.salvar();
+        } catch (ValidacaoException ex) {
+            Logger.getLogger(EquipamentoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(this, "Cliente adicionado",
                     "Adicionar cliente", JOptionPane.INFORMATION_MESSAGE);
+        
+        
     }//GEN-LAST:event_btnAddClienteActionPerformed
 
       
