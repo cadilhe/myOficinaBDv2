@@ -84,7 +84,8 @@ public final class ClienteController {
         tabelaClientes.addAll(clienteDAO.findAll());
     }
 
-    public void excluir() {
+    public void excluir() throws ValidacaoException {
+        clienteSelecionado.validarExclusao();
         clienteDAO.excluir(clienteDigitado);
         novo();
         pesquisar();

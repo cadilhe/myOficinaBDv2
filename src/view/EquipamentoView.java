@@ -342,6 +342,7 @@ public class EquipamentoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        
         if (JOptionPane.showConfirmDialog(this, "Deseja excluir o equipamento?",
                 "Excluir Equipamento", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
         equipamentoController.excluir();

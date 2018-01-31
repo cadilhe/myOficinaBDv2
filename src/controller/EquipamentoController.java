@@ -125,6 +125,7 @@ public final class EquipamentoController {
     }
 
     public void excluir() {
+        
         if (equipamentoDigitado.getCliente() != null) {
             equipamentoDigitado.getCliente().setEquipamentos(null);
         }

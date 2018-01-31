@@ -7,6 +7,8 @@ package view;
 
 import controller.ClienteController;
 import controller.EquipamentoController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.ValidacaoException;
 
@@ -19,17 +21,16 @@ public class ClienteView extends javax.swing.JInternalFrame {
     // Associaçao View e Controller
     ClienteController clienteController;
     EquipamentoController equipamentoController;
-    
+
     /**
      * Creates new form CadastroClientes
      */
-    
     public ClienteView() {
-        
+
         clienteController = new ClienteController();
         initComponents();
     }
-    
+
     // Método Getter de clienteController
     public ClienteController getClienteController() {
         return clienteController;
@@ -38,9 +39,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
     public EquipamentoController getEquipamentoController() {
         return equipamentoController;
     }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,12 +84,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${clienteController.clienteDigitado.nome}"), txtNome, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
-
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
 
         lblNomeCliente.setText("Nome");
 
@@ -256,36 +248,44 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-       clienteController.novo();      
+        clienteController.novo();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        try{
-        clienteController.salvar();
-        JOptionPane.showMessageDialog(this, "Cliente salvo com sucesso",
-                "Salvar Cliente", JOptionPane.INFORMATION_MESSAGE);
-        }catch(ValidacaoException e){
+        try {
+            clienteController.salvar();
+            JOptionPane.showMessageDialog(this, "Cliente salvo com sucesso",
+                    "Salvar Cliente", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ValidacaoException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
-                "Falha de Validação", JOptionPane.WARNING_MESSAGE);
+                    "Falha de Validação", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        
+
+        /*if(clienteController.getClienteSelecionado().getEquipamentos() != null){
+           JOptionPane.showMessageDialog(this, "Não é possível excluir um cliente proprietário",
+                "Excluir Cliente", JOptionPane.INFORMATION_MESSAGE); 
+       }else{
+         */
         if (JOptionPane.showConfirmDialog(this, "Deseja excluir o cliente?",
                 "Excluir Cliente", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
-        clienteController.excluir();
-        JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso",
-                "Excluir Cliente", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            clienteController.excluir();
+            JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso",
+                    "Excluir Cliente", JOptionPane.INFORMATION_MESSAGE);
+        } catch (ValidacaoException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                    "Falha de Validação", JOptionPane.WARNING_MESSAGE);
+        }
+
+        // }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         clienteController.pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListar1ActionPerformed
         clienteController.listar();

@@ -20,7 +20,6 @@ import util.ValidacaoException;
  *
  * @author cadilhe
  */
-
 @Entity
 @Table(name = "equipamento")
 @NamedQueries({
@@ -36,11 +35,10 @@ public class Equipamento implements EntidadeBase, Serializable {
 
     @Column
     private String nome;
-    
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente")    
-    private Cliente cliente;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id_cliente")
+    private Cliente cliente;
 
 // CONSTRUTOR    
     public Equipamento() {
@@ -72,19 +70,14 @@ public class Equipamento implements EntidadeBase, Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
-    
+
     // Método de validação de campos
     public void validarCliente() throws ValidacaoException {
         if (this.getCliente() == null || this.getCliente().equals("")) {
             throw new ValidacaoException("O Cliente deve ser preenchido!");
         }
     }
-    
-    
 
- 
-    
 // HASHCODE, EQUALS
     @Override
     public int hashCode() {
@@ -114,12 +107,11 @@ public class Equipamento implements EntidadeBase, Serializable {
         return "Equipamento{" + "nome=" + nome + ", cliente=" + cliente + '}';
     }
 
-   // Método de validação de campos
+    // Método de validação de campos
     public void validar() throws ValidacaoException {
         if (this.nome == null || this.nome.equals("")) {
             throw new ValidacaoException("Campo nome deve ser preenchido!");
         }
     }
 
-    
 }

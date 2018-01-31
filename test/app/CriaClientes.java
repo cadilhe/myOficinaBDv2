@@ -1,4 +1,4 @@
-package testes;
+package app;
 
 import java.util.List;
 import model.dao.ClienteDAO;

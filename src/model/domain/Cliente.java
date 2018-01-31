@@ -103,6 +103,15 @@ public class Cliente implements EntidadeBase, Serializable {
             throw new ValidacaoException("Campo nome deve ser preenchido!");
         }
     }
+    
+    public void validarExclusao() throws ValidacaoException {
+       if(this.getEquipamentos().isEmpty()){
+        } else {
+           throw new ValidacaoException("Cliente possui equipamento. Remova antes de excluir!");
+        }
+           
+    }
+   
 
 // HASHCODE, EQUALS, TO STRING
 
@@ -133,4 +142,6 @@ public class Cliente implements EntidadeBase, Serializable {
     public String toString() {
         return nome;
     }
+
+    
 }
